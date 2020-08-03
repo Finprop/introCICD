@@ -1,0 +1,3 @@
+-- gcloud container clusters get-credentials finprop-stg --region us-east1 --project finprop-stg-3708cb84
+-- gcloud config set project finprop-infra-a54a4f7d
+-- gcloud builds submit --config cloudbuild.yaml .

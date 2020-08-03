@@ -1,0 +1,14 @@
+steps:
+- id: Deploy
+  name: 'gcr.io/$PROJECT_ID/skaffold'
+  dir: "."
+  args: ['run', '-p', '--status-check']
+  env:
+    - 'CLOUDSDK_CONTAINER_CLUSTER=${_GCP_K8_CLUSTER}'
+    - 'CLOUDSDK_COMPUTE_REGION=${_GCP_REGION}'
+    - 'GCLOUD_PROJECT=${_GCP_PROJECT}'
+timeout: 1800s
+substitutions:
+  _GCP_K8_CLUSTER: finprop-stg # default value
+  _GCP_REGION: us-east1 # default value
+  _GCP_PROJECT: finprop-stg-3708cb84 # default value

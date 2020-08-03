@@ -1,0 +1,16 @@
+apiVersion: skaffold/v2beta4
+kind: Config
+metadata:
+  name: introcicd
+build:
+  artifacts:
+  - image: gcr.io/finprop-infra-a54a4f7d/demo-react-app
+    context: reactApp/app
+  - image: gcr.io/finprop-infra-a54a4f7d/demo-java-app
+    context: javaApp
+    jib: {}
+deploy:
+  kubectl:
+    manifests:
+#    - javaApp/k8s/web.yaml
+    - reactApp/k8s/deployment.yaml
